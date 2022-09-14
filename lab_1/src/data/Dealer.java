@@ -2,7 +2,7 @@ package data;
 
 import tools.MyTool;
 
-public class Dealer implements Comparable<Dealer>{
+public class Dealer implements Comparable<Dealer> {
 	public static final char SEPARATOR = ',';
 	public static final String ID_FORMAT = "D\\d{3}";
 	public static final String PHONE_FORMAT = "\\d{9}|\\d{11}";
@@ -14,8 +14,8 @@ public class Dealer implements Comparable<Dealer>{
 
 	public Dealer() {
 		this.ID = "";
-		this.name ="";
-		this.addr ="";
+		this.name = "";
+		this.addr = "";
 		this.phone = "";
 		this.continuing = false;
 	}
@@ -28,12 +28,12 @@ public class Dealer implements Comparable<Dealer>{
 		this.continuing = continuing;
 	}
 
-	public Dealer (String line) {
-		String[] parts = line.split(""+this.SEPARATOR);
+	public Dealer(String line) {
+		String[] parts = line.split("" + Dealer.SEPARATOR);
 		ID = parts[0].trim();
 		name = parts[1].trim();
 		addr = parts[2].trim();
-		phone=parts[3].trim();
+		phone = parts[3].trim();
 		continuing = MyTool.parseBool(parts[4]);
 	}
 
@@ -84,6 +84,6 @@ public class Dealer implements Comparable<Dealer>{
 
 	@Override
 	public String toString() {
-		return ID + SEPARATOR + name + SEPARATOR + addr +SEPARATOR + phone + SEPARATOR + continuing + "\n";
+		return ID + SEPARATOR + name + SEPARATOR + addr + SEPARATOR + phone + SEPARATOR + continuing;
 	}
 }

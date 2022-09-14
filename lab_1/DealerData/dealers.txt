@@ -1,0 +1,7 @@
+D001,Adam,432 street A,123456789,false
+D002,Smith,132 street B,456789002,true
+D003,Hellen,32 street C,08123456789,false
+D004,Adelle,43 street D,87123456789,false
+D005,Minh,6 street E,86167823459,true
+D006,Thu,17 street F,84789123456,false
+D008,NHU,62 street Z,09086756211,true

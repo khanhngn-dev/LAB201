@@ -1,7 +1,7 @@
 package tools;
 
 import java.io.*;
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -40,7 +40,7 @@ public class MyTool {
 	}
 
 	// Parse Date object into string with dateFormat
-	public static String dataToStr(Date date, String dateFormat) {
+	public static String dateToStr(Date date, String dateFormat) {
 		SimpleDateFormat dF = (SimpleDateFormat) SimpleDateFormat.getInstance();
 		dF.applyPattern(dateFormat);
 		return dF.format(date);
@@ -142,9 +142,12 @@ public class MyTool {
 		System.out.println(validStr("D0001", "D\\d{3}"));
 		System.out.println(validStr("D101", "D\\d{3}"));
 		//Test date format -> OK
+		String s = dateToStr(new Date(),"yyyy/MM/dd");
+		System.out.println(parseDate(s,"yyyy/MM/dd"));
+		System.out.println(s);
 		Date d = parseDate("2022:12:07", "yyyy:MM:dd");
 		System.out.println(d);
-		System.out.println(dataToStr(d, "dd/MM/yyyy")); // test OK
+		System.out.println(dateToStr(d, "dd/MM/yyyy")); // test OK
 		d = parseDate("12/07/2022", "MM/dd/yyyy");
 		System.out.println(d);
 		d = parseDate("2022/07/12", "yyyy/dd/MM");

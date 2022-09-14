@@ -37,7 +37,9 @@ public class AccountChecker {
 			if (parts.length < 3) {
 				return false;
 			}
-			return parts[0].equalsIgnoreCase(acc.getAccName()) && parts[1].equals(acc.getPwd()) && parts[2].equalsIgnoreCase(acc.getRole());
+			if (parts[0].equalsIgnoreCase(acc.getAccName()) && parts[1].equals(acc.getPwd()) && parts[2].equalsIgnoreCase(acc.getRole())) {
+				return true;
+			}
 		}
 		return false;
 	}

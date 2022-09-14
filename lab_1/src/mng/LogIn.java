@@ -15,9 +15,7 @@ public class LogIn {
 		Account acc = null;
 		String accName = MyTool.readNonBlank("Enter the account name");
 		String pwd;
-		do {
-			pwd = MyTool.readNonBlank("Enter the account pwd");
-		} while (!MyTool.validPassword(pwd, 8));
+		pwd = MyTool.readNonBlank("Enter the account pwd");
 		String role = MyTool.readNonBlank("Enter the account role");
 		acc = new Account(accName, pwd, role);
 		return acc;

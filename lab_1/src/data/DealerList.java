@@ -5,7 +5,6 @@ import tools.MyTool;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class DealerList extends ArrayList<Dealer> {
 	private static final String PHONE_PATTERN = "\\d{9}|\\d{11}";
@@ -52,7 +51,7 @@ public class DealerList extends ArrayList<Dealer> {
 		return newList;
 	}
 
-	private int searchDealer(String ID) {
+	public int searchDealer(String ID) {
 		for (int i = 0; i < this.size(); i++) {
 			if (this.get(i).getID().equals(ID)) {
 				return i;
@@ -62,7 +61,7 @@ public class DealerList extends ArrayList<Dealer> {
 	}
 
 	public void searchDealer() {
-		String id = MyTool.readPattern("Input ID to search:", Dealer.ID_FORMAT).toUpperCase();
+		String id = MyTool.readPattern("Input ID to search", Dealer.ID_FORMAT).toUpperCase();
 		int pos = searchDealer(id);
 		if (pos == -1) {
 			System.out.println("Not found");
@@ -79,7 +78,7 @@ public class DealerList extends ArrayList<Dealer> {
 		boolean continuing;
 		int pos;
 		do {
-			ID = MyTool.readPattern("Input ID of new dealer:", Dealer.ID_FORMAT);
+			ID = MyTool.readPattern("Input ID of new dealer", Dealer.ID_FORMAT);
 			ID = ID.toUpperCase();
 			pos = searchDealer(ID);
 			if (pos != -1) {
@@ -88,7 +87,7 @@ public class DealerList extends ArrayList<Dealer> {
 		} while (pos != -1);
 		name = MyTool.readNonBlank("Name of new dealer").toUpperCase();
 		addr = MyTool.readNonBlank("Address of new dealer").toUpperCase();
-		phone = MyTool.readPattern("Name of new dealer", Dealer.PHONE_FORMAT);
+		phone = MyTool.readPattern("Phone of new dealer", Dealer.PHONE_FORMAT);
 		continuing = true;
 		Dealer d = new Dealer(ID, name, addr, phone, continuing);
 		this.add(d);
@@ -97,7 +96,7 @@ public class DealerList extends ArrayList<Dealer> {
 	}
 
 	public void removeDealer() {
-		String id = MyTool.readPattern("Input ID to remove:", Dealer.ID_FORMAT).toUpperCase();
+		String id = MyTool.readPattern("Input ID to remove", Dealer.ID_FORMAT).toUpperCase();
 		int pos = searchDealer(id);
 		if (pos == -1) {
 			System.out.println("Not found");
@@ -153,7 +152,9 @@ public class DealerList extends ArrayList<Dealer> {
 			System.out.println("Empty list!");
 			return;
 		}
-		System.out.println(this);
+		for (Dealer dealer : this) {
+			System.out.println(dealer);
+		}
 	}
 
 	public void printContinuingDealers() {
