@@ -133,7 +133,7 @@ public class DealerList extends ArrayList<Dealer> {
 		String newPhone = "";
 		boolean valid = true;
 		do {
-			System.out.print("New address, Enter for omitting: ");
+			System.out.print("New phone, Enter for omitting: ");
 			newPhone = MyTool.SC.nextLine().trim();
 			if (newPhone.isEmpty()) {
 				valid = true;
@@ -145,6 +145,7 @@ public class DealerList extends ArrayList<Dealer> {
 				valid = false;
 			}
 		} while (!valid);
+		d.setContinuing(true);
 	}
 
 	public void printAllDealers() {
